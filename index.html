@@ -1,534 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Vanessa Cruz — QA Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanessa Garcia — QA &amp; Automation</title>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --black:#0f0f0f;
-  --dark:#1c1c1c;
-  --mid:#6b6b6b;
-  --light:#b0b0b0;
-  --rule:#e8e8e8;
-  --bg:#fafaf8;
-  --white:#ffffff;
-  --accent:#2a5f4f;
-  --accent-light:#edf4f1;
-}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--black);
-  line-height:1.6;
-  font-size:15px;
-}
+  :root{
+    --paper:#fbfaf7;
+    --paper-2:#f3f1ea;
+    --ink:#1b1a17;
+    --ink-soft:#4a4843;
+    --ink-faint:#8a877f;
+    --line:#e2dfd5;
+    --line-strong:#cdc9bc;
+    --accent:#1a4d3a;
+    --accent-soft:#e7efe9;
+    --serif:'Newsreader','Iowan Old Style',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif;
+    --mono:ui-monospace,'SFMono-Regular','Cascadia Code',Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:var(--paper)}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 32px}
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1.5rem 4rem;
-  background:rgba(250,250,248,0.95);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--rule);
-}
-.nav-name{
-  font-family:'Playfair Display',serif;
-  font-size:1.1rem;font-weight:400;
-  letter-spacing:0.3px;
-  color:var(--black);text-decoration:none;
-}
-.nav-links{display:flex;gap:2.5rem;list-style:none;}
-.nav-links a{
-  font-size:0.82rem;font-weight:400;letter-spacing:0.8px;
-  text-transform:uppercase;color:var(--mid);
-  text-decoration:none;transition:color 0.2s;
-}
-.nav-links a:hover{color:var(--black);}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-family:var(--serif);font-size:1.15rem;font-weight:600;letter-spacing:-.01em}
+  .nav-links{display:flex;gap:30px;font-size:.84rem;letter-spacing:.01em;color:var(--ink-soft)}
+  .nav-links a{position:relative;padding:2px 0}
+  .nav-links a:hover{color:var(--accent)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--accent);transition:width .22s}
+  .nav-links a:hover::after{width:100%}
+  @media(max-width:620px){.nav-links{display:none}}
 
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:grid;grid-template-columns:1fr 1fr;
-  padding:0 4rem;
-  padding-top:5rem;
-}
-.hero-left{
-  display:flex;flex-direction:column;justify-content:center;
-  padding-right:4rem;
-  border-right:1px solid var(--rule);
-}
-.hero-eyebrow{
-  font-size:0.75rem;font-weight:500;letter-spacing:2px;
-  text-transform:uppercase;color:var(--accent);
-  margin-bottom:2rem;
-}
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.8rem,4vw,4rem);
-  font-weight:400;line-height:1.15;
-  letter-spacing:-0.5px;
-  margin-bottom:1.75rem;
-  color:var(--black);
-}
-.hero h1 i{font-style:italic;color:var(--mid);}
-.hero-desc{
-  font-size:0.95rem;font-weight:300;
-  color:var(--mid);line-height:1.8;
-  max-width:420px;margin-bottom:2.5rem;
-}
-.hero-actions{display:flex;gap:1rem;align-items:center;}
-.btn-dark{
-  display:inline-block;
-  padding:0.75rem 1.75rem;
-  background:var(--black);color:var(--white);
-  font-family:'Inter',sans-serif;
-  font-size:0.8rem;font-weight:500;letter-spacing:0.8px;
-  text-transform:uppercase;text-decoration:none;
-  transition:background 0.2s;
-}
-.btn-dark:hover{background:var(--dark);}
-.btn-text{
-  font-size:0.8rem;font-weight:400;letter-spacing:0.5px;
-  color:var(--mid);text-decoration:none;
-  border-bottom:1px solid var(--rule);
-  padding-bottom:1px;transition:color 0.2s,border-color 0.2s;
-}
-.btn-text:hover{color:var(--black);border-color:var(--black);}
+  /* hero */
+  .hero{padding:110px 0 80px}
+  .kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:30px;display:flex;align-items:center;gap:12px}
+  .kicker .avail{display:inline-flex;align-items:center;gap:7px;color:var(--accent)}
+  .kicker .avail::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  h1{font-family:var(--serif);font-size:clamp(2.8rem,7.5vw,5.4rem);line-height:1.04;font-weight:500;letter-spacing:-.025em;margin-bottom:30px}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lede{font-size:1.18rem;color:var(--ink-soft);max-width:50ch;margin-bottom:38px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn{font-size:.9rem;padding:13px 24px;border-radius:2px;transition:.18s;border:1px solid transparent}
+  .btn-primary{background:var(--accent);color:var(--paper)}
+  .btn-primary:hover{background:#143d2e}
+  .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 
-.hero-right{
-  display:flex;flex-direction:column;justify-content:center;
-  padding-left:4rem;
-}
-.hero-details{display:flex;flex-direction:column;gap:1.75rem;}
-.detail-row{
-  display:flex;justify-content:space-between;align-items:baseline;
-  padding-bottom:1.75rem;
-  border-bottom:1px solid var(--rule);
-}
-.detail-row:last-child{border-bottom:none;padding-bottom:0;}
-.detail-label{
-  font-size:0.73rem;font-weight:500;letter-spacing:1.5px;
-  text-transform:uppercase;color:var(--light);
-}
-.detail-val{
-  font-size:0.95rem;font-weight:300;color:var(--dark);
-  text-align:right;
-}
-.detail-val strong{font-weight:500;display:block;}
+  /* rule with label */
+  .rule{display:flex;align-items:center;gap:18px;margin:0 0 4px}
+  .rule .num{font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)}
+  .rule .ln{flex:1;height:1px;background:var(--line-strong)}
+  .rule .lbl{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
 
-/* DIVIDER */
-.divider{
-  height:1px;background:var(--rule);
-  margin:0 4rem;
-}
+  section{padding:78px 0}
+  .sec-title{font-family:var(--serif);font-size:clamp(1.9rem,4vw,2.7rem);font-weight:500;letter-spacing:-.02em;margin:22px 0 10px}
+  .sec-sub{color:var(--ink-soft);max-width:58ch;margin-bottom:44px;font-size:1.05rem}
 
-/* SECTION */
-section{padding:5rem 4rem;}
-.sec-header{
-  display:flex;align-items:baseline;gap:1.5rem;
-  margin-bottom:3.5rem;
-  padding-bottom:1.5rem;
-  border-bottom:1px solid var(--rule);
-}
-.sec-num{
-  font-family:'Playfair Display',serif;
-  font-size:0.9rem;color:var(--light);font-style:italic;
-}
-.sec-title{
-  font-family:'Playfair Display',serif;
-  font-size:1.6rem;font-weight:400;letter-spacing:-0.3px;
-}
+  /* meta band */
+  .band{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);margin-top:64px}
+  .band div{padding:22px 24px 24px;border-left:1px solid var(--line)}
+  .band div:first-child{border-left:0;padding-left:0}
+  .band .k{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px}
+  .band .v{font-family:var(--serif);font-size:1.05rem;font-weight:500}
+  .band .v small{display:block;font-family:var(--sans);font-weight:400;color:var(--ink-soft);font-size:.82rem;margin-top:3px}
+  @media(max-width:760px){.band{grid-template-columns:repeat(2,1fr)}.band div:nth-child(3){border-left:0;padding-left:0}}
 
-/* SKILLS */
-.skills-bg{background:var(--white);}
-.skills-table{width:100%;border-collapse:collapse;}
-.skills-table tr{border-bottom:1px solid var(--rule);}
-.skills-table tr:last-child{border-bottom:none;}
-.skills-table td{padding:1.25rem 0;vertical-align:top;}
-.skill-name{
-  font-size:0.8rem;font-weight:500;letter-spacing:1px;
-  text-transform:uppercase;color:var(--mid);
-  width:200px;padding-top:1.3rem;
-}
-.skill-items{display:flex;flex-wrap:wrap;gap:8px;}
-.skill-pill{
-  font-size:0.82rem;font-weight:400;
-  padding:6px 14px;
-  border:1px solid var(--rule);
-  color:var(--dark);
-  background:var(--bg);
-}
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 40px}
+  @media(max-width:760px){.skills{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.skills{grid-template-columns:1fr}}
+  .skill h3{font-family:var(--serif);font-size:1.12rem;font-weight:600;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .skill ul{list-style:none}
+  .skill li{font-size:.92rem;color:var(--ink-soft);padding:3px 0;display:flex;align-items:baseline;gap:9px}
+  .skill li::before{content:"—";color:var(--accent);font-size:.8rem}
 
-/* PROJECTS */
-.projects-list{display:flex;flex-direction:column;gap:0;}
-.project-row{
-  display:grid;grid-template-columns:60px 1fr auto;
-  gap:2rem;align-items:start;
-  padding:2.5rem 0;
-  border-bottom:1px solid var(--rule);
-  transition:background 0.2s;
-}
-.project-row:first-child{border-top:1px solid var(--rule);}
-.project-index{
-  font-family:'Playfair Display',serif;
-  font-size:1.5rem;font-weight:400;
-  color:var(--rule);
-  font-style:italic;
-  padding-top:4px;
-}
-.project-body h3{
-  font-family:'Playfair Display',serif;
-  font-size:1.15rem;font-weight:400;
-  margin-bottom:0.5rem;letter-spacing:-0.2px;
-}
-.project-body p{
-  font-size:0.88rem;font-weight:300;
-  color:var(--mid);line-height:1.7;
-  max-width:520px;margin-bottom:1rem;
-}
-.project-tags{display:flex;gap:6px;flex-wrap:wrap;}
-.project-tag{
-  font-size:0.72rem;letter-spacing:0.5px;
-  padding:3px 10px;
-  background:var(--accent-light);
-  color:var(--accent);font-weight:500;
-}
-.project-meta{text-align:right;padding-top:4px;}
-.project-type{
-  font-size:0.73rem;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--light);display:block;margin-bottom:0.5rem;
-}
-.project-cta{
-  font-size:0.8rem;color:var(--black);
-  text-decoration:none;font-weight:500;
-  border-bottom:1px solid var(--black);
-  padding-bottom:1px;
-}
+  /* work / projects */
+  .proj{display:grid;grid-template-columns:64px 1fr auto;gap:24px;align-items:start;padding:30px 0;border-top:1px solid var(--line);transition:.18s}
+  .proj:hover{padding-left:8px}
+  .proj:first-of-type{border-top:1px solid var(--line-strong)}
+  .proj .idx{font-family:var(--mono);font-size:.82rem;color:var(--ink-faint);padding-top:6px}
+  .proj-main h3{font-family:var(--serif);font-size:1.4rem;font-weight:500;letter-spacing:-.015em;margin-bottom:8px}
+  .proj-main p{color:var(--ink-soft);font-size:.96rem;max-width:62ch;margin-bottom:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--line);border-radius:2px;padding:3px 8px}
+  .proj-side{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:12px;padding-top:6px;white-space:nowrap}
+  .badge{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:2px}
+  .badge.pass{color:var(--accent);background:var(--accent-soft);border:1px solid #bcd4c6}
+  .badge.local{color:#8a6d1c;background:#f6efda;border:1px solid #e4d4a4}
+  .proj-side a{font-size:.82rem;color:var(--accent);border-bottom:1px solid transparent;transition:.15s}
+  .proj-side a:hover{border-bottom-color:var(--accent)}
+  @media(max-width:680px){
+    .proj{grid-template-columns:1fr;gap:14px}
+    .proj .idx{padding-top:0}
+    .proj-side{text-align:left;align-items:flex-start;flex-direction:row;justify-content:space-between;width:100%}
+  }
 
-/* ABOUT */
-.about-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:5rem;align-items:start;
-}
-.about-text p{
-  font-size:0.95rem;font-weight:300;
-  color:var(--mid);line-height:1.9;
-  margin-bottom:1.2rem;
-}
-.about-text p:last-child{margin-bottom:0;}
-.creds{display:flex;flex-direction:column;gap:1.25rem;}
-.cred{
-  padding:1.5rem;
-  border:1px solid var(--rule);
-  background:var(--white);
-}
-.cred-label{
-  font-size:0.72rem;font-weight:500;letter-spacing:1.5px;
-  text-transform:uppercase;color:var(--light);
-  margin-bottom:0.4rem;
-}
-.cred-val{
-  font-size:0.95rem;font-weight:400;color:var(--dark);
-}
-.cred-sub{
-  font-size:0.82rem;font-weight:300;color:var(--mid);margin-top:2px;
-}
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:56px;align-items:start}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:36px}}
+  .about-body p{color:var(--ink-soft);margin-bottom:20px;font-size:1.08rem}
+  .about-body p strong{color:var(--ink);font-weight:600}
+  .about-body .pull{font-family:var(--serif);font-size:1.45rem;font-style:italic;color:var(--accent);line-height:1.4;border-left:2px solid var(--accent);padding-left:20px;margin:6px 0 24px}
+  .facts{border-top:1px solid var(--line-strong)}
+  .facts .row{padding:15px 0;border-bottom:1px solid var(--line)}
+  .facts .k{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px}
+  .facts .v{font-family:var(--serif);font-weight:500;font-size:1rem}
+  .facts .v small{display:block;font-family:var(--sans);font-weight:400;color:var(--ink-soft);font-size:.82rem}
 
-/* CONTACT */
-.contact-bg{background:var(--black);color:var(--white);}
-.contact-bg .sec-title{color:var(--white);}
-.contact-bg .sec-num{color:#444;}
-.contact-inner{
-  display:flex;justify-content:space-between;align-items:flex-end;
-}
-.contact-left h2{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,3vw,3rem);
-  font-weight:400;line-height:1.2;
-  color:var(--white);margin-bottom:1rem;
-}
-.contact-left h2 i{color:rgba(255,255,255,0.35);}
-.contact-left p{
-  font-size:0.9rem;font-weight:300;
-  color:rgba(255,255,255,0.45);
-  max-width:380px;line-height:1.8;
-}
-.contact-links{display:flex;flex-direction:column;gap:0.75rem;align-items:flex-end;}
-.contact-link{
-  font-size:0.82rem;font-weight:400;letter-spacing:0.5px;
-  color:rgba(255,255,255,0.5);
-  text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.15);
-  padding-bottom:2px;
-  transition:color 0.2s,border-color 0.2s;
-}
-.contact-link:hover{color:var(--white);border-color:var(--white);}
-.contact-email{
-  font-family:'Playfair Display',serif;
-  font-size:1.1rem;font-style:italic;
-  color:var(--white);
-  text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,0.3);
-  padding-bottom:3px;
-  transition:border-color 0.2s;
-}
-.contact-email:hover{border-color:white;}
+  /* contact */
+  .contact h2{font-family:var(--serif);font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:500;letter-spacing:-.02em;margin-bottom:18px}
+  .contact h2 em{font-style:italic;color:var(--accent)}
+  .contact p{color:var(--ink-soft);max-width:50ch;margin-bottom:30px;font-size:1.08rem}
+  .contact-links{display:flex;gap:14px;flex-wrap:wrap}
 
-footer{
-  padding:1.5rem 4rem;
-  background:var(--black);
-  display:flex;justify-content:space-between;align-items:center;
-  border-top:1px solid rgba(255,255,255,0.06);
-}
-footer span{font-size:0.78rem;color:rgba(255,255,255,0.25);letter-spacing:0.5px;}
+  footer{padding:44px 0;border-top:1px solid var(--line);color:var(--ink-faint);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
-.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-name" href="#">Vanessa Cruz</a>
-  <ul class="nav-links">
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="wrap nav-in">
+    <div class="brand">Vanessa Garcia</div>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">QA Engineer · Orlando, FL</p>
-    <h1>Finding the bugs<br/>before your <i>users do.</i></h1>
-    <p class="hero-desc">Software QA Tester with a Computer Science background, ITIL v4 certification, and a growing test automation practice. Available for remote roles.</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-dark">View work</a>
-      <a href="#contact" class="btn-text">Get in touch</a>
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">
+      <span class="avail">Open to remote roles</span>
+      <span>QA Tester · Orlando, FL</span>
+    </div>
+    <h1>Finding the bugs<br>before your <em>users do.</em></h1>
+    <p class="lede">Software QA Tester with a Computer Science background and ITIL v4 certification, building a test automation practice in Python, Playwright, and pytest.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#work">View work</a>
+      <a class="btn btn-ghost" href="https://github.com/vanessag0501/qa_automation_portfolio" target="_blank" rel="noopener">GitHub repo</a>
+    </div>
+
+    <div class="band">
+      <div><div class="k">Current</div><div class="v">QA Tester I<small>Online Labels Group</small></div></div>
+      <div><div class="k">Education</div><div class="v">B.A. Computer Science<small>Florida State University</small></div></div>
+      <div><div class="k">Certification</div><div class="v">ITIL v4<small>PeopleCert</small></div></div>
+      <div><div class="k">Status</div><div class="v">Open<small>Actively interviewing</small></div></div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-details">
-      <div class="detail-row">
-        <span class="detail-label">Currently</span>
-        <span class="detail-val"><strong>QA Tester I</strong>Online Labels Group</span>
+</header>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="rule"><span class="num">01</span><span class="lbl">Skills &amp; Tools</span><span class="ln"></span></div>
+    <h2 class="sec-title">What I test with</h2>
+    <p class="sec-sub">A working toolkit built across a self-directed automation learning path, from Python foundations through CI/CD.</p>
+    <div class="skills">
+      <div class="skill">
+        <h3>Automation</h3>
+        <ul><li>Python</li><li>Playwright</li><li>pytest &amp; POM</li><li>Device emulation</li></ul>
       </div>
-      <div class="detail-row">
-        <span class="detail-label">Education</span>
-        <span class="detail-val"><strong>B.S. Computer Science</strong>Florida State University</span>
+      <div class="skill">
+        <h3>API &amp; Performance</h3>
+        <ul><li>requests</li><li>Postman &amp; Newman</li><li>REST APIs</li><li>Locust load testing</li></ul>
       </div>
-      <div class="detail-row">
-        <span class="detail-label">Certification</span>
-        <span class="detail-val"><strong>ITIL v4</strong>PeopleCert</span>
+      <div class="skill">
+        <h3>Reporting &amp; Quality</h3>
+        <ul><li>Allure</li><li>pytest-html</li><li>Security headers</li><li>Data-driven tests</li></ul>
       </div>
-      <div class="detail-row">
-        <span class="detail-label">Status</span>
-        <span class="detail-val" style="color:var(--accent);font-weight:500;">Open to opportunities</span>
+      <div class="skill">
+        <h3>Manual Testing</h3>
+        <ul><li>Test plans</li><li>Test case design</li><li>Bug reporting</li><li>Exploratory testing</li></ul>
+      </div>
+      <div class="skill">
+        <h3>CI/CD &amp; Data</h3>
+        <ul><li>GitHub Actions</li><li>Git</li><li>SQL &amp; SQLite</li><li>Flaky-test handling</li></ul>
+      </div>
+      <div class="skill">
+        <h3>Process</h3>
+        <ul><li>ITIL v4</li><li>Agile</li><li>SDLC</li><li>QA process design</li></ul>
       </div>
     </div>
   </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- SKILLS -->
-<section class="skills-bg" id="skills">
-  <div class="sec-header reveal">
-    <span class="sec-num">01</span>
-    <h2 class="sec-title">Skills & Tools</h2>
-  </div>
-  <table class="skills-table reveal">
-    <tr>
-      <td class="skill-name">Automation</td>
-      <td><div class="skill-items">
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">Playwright</span>
-        <span class="skill-pill">pytest</span>
-        <span class="skill-pill">Page Object Model</span>
-        <span class="skill-pill">CSV Test Data</span>
-      </div></td>
-    </tr>
-    <tr>
-      <td class="skill-name">Manual Testing</td>
-      <td><div class="skill-items">
-        <span class="skill-pill">Functional Testing</span>
-        <span class="skill-pill">Regression Testing</span>
-        <span class="skill-pill">Exploratory Testing</span>
-        <span class="skill-pill">Bug Reporting</span>
-      </div></td>
-    </tr>
-    <tr>
-      <td class="skill-name">Documentation</td>
-      <td><div class="skill-items">
-        <span class="skill-pill">Test Plans</span>
-        <span class="skill-pill">Test Cases</span>
-        <span class="skill-pill">Execution Reports</span>
-        <span class="skill-pill">Bug Trackers</span>
-      </div></td>
-    </tr>
-    <tr>
-      <td class="skill-name">API Testing</td>
-      <td><div class="skill-items">
-        <span class="skill-pill">Postman</span>
-        <span class="skill-pill">Newman</span>
-        <span class="skill-pill">REST APIs</span>
-        <span class="skill-pill">requests</span>
-      </div></td>
-    </tr>
-    <tr>
-      <td class="skill-name">CI/CD</td>
-      <td><div class="skill-items">
-        <span class="skill-pill">GitHub Actions</span>
-        <span class="skill-pill">Git</span>
-      </div></td>
-    </tr>
-    <tr>
-      <td class="skill-name">Process & Frameworks</td>
-      <td><div class="skill-items">
-        <span class="skill-pill">ITIL v4</span>
-        <span class="skill-pill">Agile</span>
-        <span class="skill-pill">SDLC</span>
-        <span class="skill-pill">SQL</span>
-      </div></td>
-    </tr>
-  </table>
 </section>
 
-<div class="divider"></div>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="sec-header reveal">
-    <span class="sec-num">02</span>
+<section id="work">
+  <div class="wrap">
+    <div class="rule"><span class="num">02</span><span class="lbl">Selected Work</span><span class="ln"></span></div>
     <h2 class="sec-title">Projects</h2>
-  </div>
-  <div class="projects-list">
-    <div class="project-row reveal">
-      <div class="project-index">01</div>
-      <div class="project-body">
-        <h3>Playwright Automation Suite</h3>
-        <p>End-to-end test suite built against demoqa.com using Python, Playwright, and the Page Object Model. Covers form interactions, dynamic elements, alerts, and frames. Includes CSV-driven test data and custom pytest reporters.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">Playwright</span>
-          <span class="project-tag">pytest</span>
-          <span class="project-tag">POM</span>
-        </div>
+    <p class="sec-sub">Real, runnable code with documentation, committed and running in CI. Each links to the source on GitHub.</p>
+
+    <div class="proj">
+      <div class="idx">01</div>
+      <div class="proj-main">
+        <h3>End-to-End Automation Suite</h3>
+        <p>Registration and login flows automated with Playwright and the Page Object Model against a live e-commerce site. Surfaced three real application defects through automation: an address autofill that overwrites user input, a submit-time race condition, and a breached-password rejection with no client-side warning.</p>
+        <div class="chips"><span class="chip">Playwright</span><span class="chip">POM</span><span class="chip">pytest</span><span class="chip">Allure</span></div>
       </div>
-      <div class="project-meta">
-        <span class="project-type">Automation</span>
-        <a href="https://github.com/yourusername/qa-automation" class="project-cta">GitHub →</a>
-      </div>
+      <div class="proj-side"><span class="badge local">local-only</span><a href="https://github.com/vanessag0501/qa_automation_portfolio/tree/main/week10" target="_blank" rel="noopener">View code</a></div>
     </div>
-    <div class="project-row reveal">
-      <div class="project-index">02</div>
-      <div class="project-body">
-        <h3>QA Documentation Starter Kit</h3>
-        <p>Full QA documentation suite built from scratch for a company with no existing QA process. Includes test plan, test case library, bug tracker, execution report, and task log — covering both manual and exploratory testing workflows.</p>
-        <div class="project-tags">
-          <span class="project-tag">Test Planning</span>
-          <span class="project-tag">Bug Tracking</span>
-          <span class="project-tag">Process Design</span>
-        </div>
+
+    <div class="proj">
+      <div class="idx">02</div>
+      <div class="proj-main">
+        <h3>API Test Suite &amp; Auth Coverage</h3>
+        <p>Full CRUD, schema validation, parametrized and chained requests, plus bearer and basic auth, sessions, and 401 handling. Includes graceful skip logic so a third-party API outage degrades cleanly instead of failing the build.</p>
+        <div class="chips"><span class="chip">requests</span><span class="chip">pytest</span><span class="chip">fixtures</span><span class="chip">data-driven</span></div>
       </div>
-      <div class="project-meta">
-        <span class="project-type">Documentation</span>
-        <a href="#" class="project-cta">View →</a>
-      </div>
+      <div class="proj-side"><span class="badge pass">pass</span><a href="https://github.com/vanessag0501/qa_automation_portfolio/tree/main/week6" target="_blank" rel="noopener">View code</a></div>
     </div>
-    <div class="project-row reveal">
-      <div class="project-index">03</div>
-      <div class="project-body">
-        <h3>API Test Collection — JSONPlaceholder</h3>
-        <p>Postman collection with 15 assertions across GET, POST, and DELETE endpoints. Validates status codes, response structure, field values, and response time. Automated via Newman and integrated into GitHub Actions CI — runs on every push.</p>
-        <div class="project-tags">
-          <span class="project-tag">Postman</span>
-          <span class="project-tag">Newman</span>
-          <span class="project-tag">REST API</span>
-          <span class="project-tag">CI/CD</span>
-        </div>
+
+    <div class="proj">
+      <div class="idx">03</div>
+      <div class="proj-main">
+        <h3>Performance Testing with Locust</h3>
+        <p>Load tests simulating concurrent users against a live REST API, with weighted GET and POST scenarios and analysis of response times, throughput, and failure rates.</p>
+        <div class="chips"><span class="chip">Locust</span><span class="chip">Python</span><span class="chip">load testing</span></div>
       </div>
-      <div class="project-meta">
-        <span class="project-type">API Testing</span>
-        <a href="https://github.com/vanessag0501/qa_automation_portfolio" class="project-cta">GitHub →</a>
-      </div>
+      <div class="proj-side"><span class="badge pass">pass</span><a href="https://github.com/vanessag0501/qa_automation_portfolio/tree/main/week9" target="_blank" rel="noopener">View code</a></div>
     </div>
+
+    <div class="proj">
+      <div class="idx">04</div>
+      <div class="proj-main">
+        <h3>API Security Header Audit</h3>
+        <p>A pytest audit that checks live sites for common security controls across multiple targets, reporting findings rather than failing on weak security. Found and fixed a false positive caused by a case-sensitive header comparison.</p>
+        <div class="chips"><span class="chip">security</span><span class="chip">requests</span><span class="chip">parametrize</span></div>
+      </div>
+      <div class="proj-side"><span class="badge pass">pass</span><a href="https://github.com/vanessag0501/qa_automation_portfolio/tree/main/week12" target="_blank" rel="noopener">View code</a></div>
+    </div>
+
+    <div class="proj">
+      <div class="idx">05</div>
+      <div class="proj-main">
+        <h3>Mobile Web Testing</h3>
+        <p>Cross-device responsive testing using Playwright device emulation. The same suite runs across iPhone, Pixel, and Galaxy profiles, covering mobile-specific UI like the hamburger menu and the add-to-cart flow.</p>
+        <div class="chips"><span class="chip">Playwright</span><span class="chip">emulation</span><span class="chip">cross-device</span></div>
+      </div>
+      <div class="proj-side"><span class="badge pass">pass</span><a href="https://github.com/vanessag0501/qa_automation_portfolio/tree/main/week13" target="_blank" rel="noopener">View code</a></div>
+    </div>
+
+    <div class="proj">
+      <div class="idx">06</div>
+      <div class="proj-main">
+        <h3>OpenCart Manual Testing &amp; QA Docs</h3>
+        <p>A full manual QA engagement on a live storefront: test plan, test case matrix, bug report, and execution summary. Paired with QA documentation infrastructure I built from scratch at a company that had no formal QA process.</p>
+        <div class="chips"><span class="chip">Test Plans</span><span class="chip">Bug Reports</span><span class="chip">Exploratory</span></div>
+      </div>
+      <div class="proj-side"><span class="badge pass">pass</span><a href="https://github.com/vanessag0501/qa_automation_portfolio/tree/main/opencart-manual-testing" target="_blank" rel="noopener">View docs</a></div>
+    </div>
+
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ABOUT -->
 <section id="about">
-  <div class="sec-header reveal">
-    <span class="sec-num">03</span>
-    <h2 class="sec-title">About</h2>
-  </div>
-  <div class="about-grid reveal">
-    <div class="about-text">
-      <p>I'm a QA engineer based in the Orlando area with a Computer Science degree from Florida State and an ITIL v4 certification. My background is in manual testing, but I've spent the last several months building a serious automation practice with Python and Playwright.</p>
-      <p>I've built QA processes at a company that had none — writing documentation, test plans, and bug tracking systems from the ground up. I care about testing that's thorough, well-documented, and actually useful to the teams I work with.</p>
-      <p>I'm looking for remote QA or QA/BA hybrid roles where I can keep growing and contribute from day one.</p>
-    </div>
-    <div class="creds">
-      <div class="cred">
-        <div class="cred-label">Degree</div>
-        <div class="cred-val">B.S. Computer Science</div>
-        <div class="cred-sub">Florida State University</div>
+  <div class="wrap">
+    <div class="rule"><span class="num">03</span><span class="lbl">About</span><span class="ln"></span></div>
+    <h2 class="sec-title">A bit about me</h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I'm a QA tester based in the Orlando area with a Computer Science degree from Florida State and an ITIL v4 certification. My background is in manual testing, and over the last several months I've built an automation project with Python and Playwright.</p>
+        <p class="pull">I've built QA processes at a company that had none — writing the documentation, test plans, and bug tracking from the ground up.</p>
+        <p>I care about testing that's thorough, well-documented, and <strong>actually useful to the teams I work with.</strong> I'm looking for remote QA, QA Engineer, or SDET roles where I can keep growing and contribute from day one.</p>
       </div>
-      <div class="cred">
-        <div class="cred-label">Certification</div>
-        <div class="cred-val">ITIL v4 Foundation</div>
-        <div class="cred-sub">PeopleCert</div>
-      </div>
-      <div class="cred">
-        <div class="cred-label">Location</div>
-        <div class="cred-val">Orlando, FL</div>
-        <div class="cred-sub">Open to fully remote</div>
-      </div>
-      <div class="cred">
-        <div class="cred-label">Availability</div>
-        <div class="cred-val" style="color:var(--accent);">Actively interviewing</div>
-        <div class="cred-sub">QA · QA/BA hybrid</div>
+      <div class="facts">
+        <div class="row"><div class="k">Degree</div><div class="v">B.A. Computer Science<small>Florida State University</small></div></div>
+        <div class="row"><div class="k">Certification</div><div class="v">ITIL v4 Foundation<small>PeopleCert</small></div></div>
+        <div class="row"><div class="k">Location</div><div class="v">Orlando, FL<small>Open to fully remote</small></div></div>
+        <div class="row"><div class="k">Focus</div><div class="v">QA Analyst· QA Engineer · SDET</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact-bg" id="contact">
-  <div class="contact-inner reveal">
-    <div class="contact-left">
-      <h2>Let's work<br/><i>together.</i></h2>
-      <p>I'm actively looking for remote QA and QA/BA hybrid roles. If you're hiring or want to connect, reach out.</p>
-    </div>
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="rule"><span class="num">04</span><span class="lbl">Contact</span><span class="ln"></span></div>
+    <h2 style="margin-top:22px">Let's work <em>together.</em></h2>
+    <p>I'm actively looking for remote QA and automation roles. If you're hiring or want to connect, reach out.</p>
     <div class="contact-links">
-      <a href="mailto:your@email.com" class="contact-email">your@email.com</a>
-      <a href="https://linkedin.com/in/yourprofile" class="contact-link">LinkedIn</a>
-      <a href="https://github.com/yourusername" class="contact-link">GitHub</a>
+      <a class="btn btn-primary" href="mailto:vanessag0501@gmail.com">vanessag0501@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/vanessa-garcia-ab090314b" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/vanessag0501" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <span>Vanessa Cruz · QA Engineer</span>
-  <span>© 2025</span>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;width:100%">
+    <span>Vanessa Garcia — QA &amp; Automation</span>
+    <span>Built &amp; tested by hand · © 2026</span>
+  </div>
 </footer>
 
-<script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach((e,i) => {
-    if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*100);
-  });
-},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
 </body>
 </html>
